@@ -1,0 +1,83 @@
+﻿# TP1 - Commandes Linux
+
+## Partie 2
+cd ~/TP_Linux
+mkdir -p docs images scripts
+touch docs/resume.txt
+cp docs/resume.txt scripts/
+mv scripts/resume.txt images/
+ls -l images/
+rm images/resume.txt
+echo "Premier test d’édition sous Linux." > docs/notes.txt
+cat docs/notes.txt
+nano docs/notes.txt
+
+## Partie 3
+pwd
+ls -la /
+ls /bin
+ls /sbin
+ls /etc
+ls /home
+ls /root
+ls /var
+ls /tmp
+ls /usr
+ls /lib
+ls /media
+ls /mnt
+ls /dev
+ls /proc
+ls /boot
+
+## Partie 4
+tty
+whoami
+echo $SHELL
+echo $HOME
+type cd
+which cd
+type ls
+which ls
+type pwd
+which pwd
+man ls
+ls --help
+man -k partition
+history
+date
+cal
+uptime
+
+## Partie 5
+mkdir -p ~/TP_Shell
+cd ~/TP_Shell
+ls /etc > etc.txt
+ls /var >> etc.txt
+wc -l etc.txt
+ls /etc /dossier_inexistant > ok.txt 2> erreurs.txt
+ls /etc /dossier_inexistant &> tout.txt
+head -5 /etc/passwd
+tail -5 /etc/passwd
+grep "^emsi:" /etc/passwd
+grep -c "/bin/bash$" /etc/passwd
+cut -d: -f1 /etc/passwd | sort
+find /etc -name "*.conf" -mtime -2
+find ~ -type f -size +1M
+sudo du -sh /var/log/* | sort -h | tail -5
+ps aux | tee processus.txt
+ls -l /etc/passwd /etc/shadow ~
+
+## Partie 6
+sudo systemctl enable --now sshd
+sudo systemctl is-enabled sshd
+sudo systemctl is-active sshd
+sudo firewall-cmd --list-services
+hostname
+hostname -I
+ssh emsi@192.168.15.128
+hostname
+echo $SSH_CONNECTION
+who
+w
+ssh emsi@192.168.15.128 "uptime; df -h /"
